@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Box</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #5f647c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        .header {
+            text-align: center;
+            font-size: 24px;
+            color: #ff4081;
+            margin-bottom: 20px;
+        }
+        .option {
+            border: 1px solid #ff4081;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
+            cursor: pointer;
+        }
+        .option label {
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+        }
+        .Prs {
+            font-size: 11px;
+            font-weight: bold;
+            bottom: 10px;
+            right: 20px;
+            position: absolute;
+        }
+        .Prs1 {
+            font-size: 8px;
+            bottom: 1px;
+            right: 20px;
+            position: absolute;
+        }
+
+        .most-popular {
+            top: -7px;
+            right: 20px;
+            background-color: #ff4081;
+            color: #f8a8a8;
+            font-size: 10px;
+            position: absolute;
+            border-top-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+        .discount {
+            position: absolute;
+            right: 200px;
+            top: -10px;
+            background-color: #ff4081;
+            font-size: 8px;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        
+        .collapse-box {
+            display: none;
+            margin-top: 10px;
+            position: relative;
+            font-size: 10px;
+        }
+        .collapse-box.show {
+            display: block;
+        }
+        
+        .add-to-cart {
+            display: block;
+            width: 100%;
+            background-color: #ff4081;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .powered-by {
+            text-align: end;
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 10px;
+        }
+        .total {
+            padding: 20px;
+            font-size: 15px;
+            color: #f93577;
+        }
+        .totalPrice {
+            font-size: 15px;
+            position: relative;
+            right: 0px;
+            color: #0e0d0d;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">YAY! It’s BOGO</div>
+    <div class="option" onclick="toggleCollapse('collapse1')">
+        <span class="discount">10% Off</span>
+        <label for="unit1">
+            <input type="radio" name="unit" id="unit1" value="1" checked>
+            1 Unit </label>
+        <p class="Prs">$10.00 USD</p>
+        <p class="Prs1 text-muted"><del>$24.00 USD</del></p>
+        <div id="collapse1" class="collapse-box mt-2">
+            <p>Size: <select>
+                <option>1</option>
+                <option>2</option>
+            </select></p>
+            <p>Colour: <select>
+                <option>Black</option>
+                <option>Red</option>
+            </select></p>
+        </div>
+    </div>
+    <div class="option" onclick="toggleCollapse('collapse2')">
+        <span class="discount">20% Off</span>
+        <span class="most-popular">MOST POPULAR</span>
+        <label for="unit2">
+            <input type="radio" name="unit" id="unit2" value="2">
+            2 Units</label>
+        <p class="Prs">$18.00 USD</p>
+        <p class="Prs1 text-muted"><del>$24.00 USD</del></p>
+        <div id="collapse2" class="collapse-box mt-2">
+            <p>Size: <select>
+                <option>s</option>
+                <option>s</option>
+            </select></p>
+            <p>Colour: <select>
+                <option>Black</option>
+                <option>Red</option>
+            </select></p>
+        </div>
+    </div>
+    <div class="option" onclick="toggleCollapse('collapse3')">
+        <span class="discount">30% Off</span>
+        <label for="unit3">
+            <input type="radio" name="unit" id="unit3" value="3">
+            3 Units </label>
+        <p class="Prs">$24.00 USD</p>
+        <p class="Prs1 text-muted"><del>$24.00 USD</del></p>
+        <div id="collapse3" class="collapse-box mt-2">
+            <p>Size: <select>
+                <option>s</option>
+                <option>s</option>
+            </select></p>
+            <p>Colour: <select>
+                <option>Black</option>
+                <option>Red</option>
+            </select></p>
+        </div>
+    </div>
+    <div class="total">Free Delivery <span class="totalPrice">Total: $18.00 USD</span></div>
+    <button class="add-to-cart">+ Add to Cart</button>
+    <div class="powered-by">@Powered by AGV</div>
+</div>
+
+<script>
+    function toggleCollapse(id) {
+        var element = document.getElementById(id);
+        if (element.classList.contains('show')) {
+            element.classList.remove('show');
+        } else {
+            element.classList.add('show');
+        }
+    }
+</script>
+
+</body>
+</html>
